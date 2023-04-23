@@ -1,0 +1,32 @@
+{
+  "name": "rideshare",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Web application for VTCarPool",
+  "engines": {
+    "node": "8.9.x"
+  },
+  "scripts": {
+    "test": "npm test --prefix client && npm test --prefix server",
+    "lint": "npm lint --prefix client && npm lint --prefix server",
+    "start": "concurrently \"npm start --prefix server\" \"npm start --prefix client\"",
+    "heroku-postbuild": "npm install --prefix client && npm install --only=dev --no-shrinkwrap --prefix client && npm run build --prefix client && npm install --prefix server"
+  },
+  "cacheDirectories": [
+    "client/node_modules",
+    "server/node_modules"
+  ],
+  "keywords": [],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react-test-renderer": "^16.3.2"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "prefix": "^1.0.0",
+    "react-scripts": "^5.0.1"
+  }
+}
